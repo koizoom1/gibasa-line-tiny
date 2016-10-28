@@ -20,6 +20,8 @@ require_once('./LINEBotTiny.php');
 
 $channelAccessToken = getenv('LINEBOT_CHANNEL_TOKEN');
 $channelSecret = getenv('LINEBOT_CHANNEL_SECRET');
+error_log("channelAccessToken: " . $channelAccessToken);
+error_log("channelSecret: " . $channelSecret);
 
 $client = new LINEBotTiny($channelAccessToken, $channelSecret);
 foreach ($client->parseEvents() as $event) {
