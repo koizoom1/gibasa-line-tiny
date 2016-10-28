@@ -28,8 +28,10 @@ foreach ($client->parseEvents() as $event) {
     switch ($event['type']) {
         case 'message':
             $message = $event['message'];
+            
             switch ($message['type']) {
                 case 'text':
+                    error_log("text: " . $message['text']);
                     $client->replyMessage(array(
                         'replyToken' => $event['replyToken'],
                         'messages' => array(
